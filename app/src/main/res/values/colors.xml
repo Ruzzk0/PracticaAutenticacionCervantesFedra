@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="backgroundWarm">#0A0F1E</color> <!-- Azul oscuro estilo Omen -->
+    <color name="buttonWarm">#4B5DA1</color> <!-- Azul morado intenso -->
+    <color name="textWarm">#7289DA</color> <!-- Azul claro vibrante -->>
+
 </resources>

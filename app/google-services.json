@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "801666058011",
+    "project_id": "login-22945",
+    "storage_bucket": "login-22945.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801666058011:android:3581ee12172577d14875be",
+        "android_client_info": {
+          "package_name": "cervantes.fedra.practicaautenticacioncervantesfedra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGkJPsmQnNUnXdqS8sAbQIaPSE5r6i1lQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

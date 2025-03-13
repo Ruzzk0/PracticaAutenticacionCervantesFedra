@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="@color/backgroundWarm">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center" />
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo electrónico"
+        android:textColor="@color/white"
+        android:hintTextColor="@color/textWarm"
+        android:backgroundTint="@color/textWarm"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contraseña"
+        android:textColor="@color/white"
+        android:hintTextColor="@color/textWarm"
+        android:backgroundTint="@color/textWarm"
+        android:inputType="textPassword"/>
+
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/holo_red_light"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entrar"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/buttonWarm"/>
+
+    <Button
+        android:id="@+id/btnGoRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:background="@android:color/transparent"
+        android:textColor="@color/textWarm"/>
+
+</LinearLayout>
