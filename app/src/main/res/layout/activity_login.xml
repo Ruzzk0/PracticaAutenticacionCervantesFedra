@@ -8,13 +8,15 @@
     android:padding="24dp"
     android:background="@color/backgroundWarm">
 
+
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/ivLogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/logo"
+        android:src="@drawable/ivlogo"
         android:layout_gravity="center" />
 
+    >
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
@@ -23,7 +25,10 @@
         android:textColor="@color/white"
         android:hintTextColor="@color/textWarm"
         android:backgroundTint="@color/textWarm"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+
 
     <EditText
         android:id="@+id/etPassword"
@@ -33,14 +38,20 @@
         android:textColor="@color/white"
         android:hintTextColor="@color/textWarm"
         android:backgroundTint="@color/textWarm"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:padding="10dp" />
+
 
     <TextView
         android:id="@+id/tvError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_light"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp" />
+
 
     <Button
         android:id="@+id/btnLogin"
@@ -48,7 +59,9 @@
         android:layout_height="wrap_content"
         android:text="Entrar"
         android:textColor="@color/white"
-        android:backgroundTint="@color/buttonWarm"/>
+        android:backgroundTint="@color/buttonWarm"
+        android:layout_marginTop="10dp" />
+
 
     <Button
         android:id="@+id/btnGoRegister"
@@ -56,6 +69,7 @@
         android:layout_height="wrap_content"
         android:text="Registrar"
         android:background="@android:color/transparent"
-        android:textColor="@color/textWarm"/>
+        android:textColor="@color/textWarm"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="cervantes.fedra.practicaautenticacioncervantesfedra" />
+                  <option name="mobileSdkAppId" value="1:51687377285:android:965fa27fc4b541c1345cec" />
+                  <option name="projectId" value="login-bf3d0" />
+                  <option name="projectNumber" value="51687377285" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

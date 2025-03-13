@@ -1,22 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp"
-    android:background="@color/backgroundWarm">
+    android:background="@color/backgroundWarm"
+    android:padding="24dp">
 
+    <!-- Título -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¡Regístrate!"
+        android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
 
+    <!-- Correo Electrónico -->
     <EditText
         android:id="@+id/etrEmail"
         android:layout_width="match_parent"
@@ -27,6 +31,7 @@
         android:backgroundTint="@color/textWarm"
         android:inputType="textEmailAddress"/>
 
+    <!-- Contraseña -->
     <EditText
         android:id="@+id/etrPassword"
         android:layout_width="match_parent"
@@ -37,6 +42,7 @@
         android:backgroundTint="@color/textWarm"
         android:inputType="textPassword"/>
 
+    <!-- Confirmar Contraseña -->
     <EditText
         android:id="@+id/etrConfirmPassword"
         android:layout_width="match_parent"
@@ -47,13 +53,16 @@
         android:backgroundTint="@color/textWarm"
         android:inputType="textPassword"/>
 
+    <!-- Mensaje de Error -->
     <TextView
         android:id="@+id/tvrError"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_light"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:textSize="14sp"/>
 
+    <!-- Botón de Registro -->
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
@@ -62,4 +71,11 @@
         android:textColor="@color/white"
         android:backgroundTint="@color/buttonWarm"/>
 
+    <Button
+        android:id="@+id/btnGoLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ya tienes una cuenta, ingresa aquí"
+        android:textColor="@color/textWarm"
+        android:background="@android:color/transparent"/>
 </LinearLayout>
