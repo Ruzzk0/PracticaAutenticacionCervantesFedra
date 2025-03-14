@@ -24,72 +24,58 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = auth
 
-        val inputEmail = findViewById<EditText>(R.id.etrEmail)
-        val inputPassword = findViewById<EditText>(R.id.etrPassword)
-        val inputConfirmPassword = findViewById<EditText>(R.id.etrConfirmPassword)
-        val errorMessage = findViewById<TextView>(R.id.tvrError)
-        val btnToLogin = findViewById<Button>(R.id.btnGoLogin)
-        val btnRegister = findViewById<Button>(R.id.btnRegister)
+        val email = findViewById<EditText>(R.id.etrEmail)
+        val password = findViewById<EditText>(R.id.etrPassword)
+        val confirmPassword = findViewById<EditText>(R.id.etrConfirmPassword)
+        val errorTv = findViewById<TextView>(R.id.tvrError)
+        val goLogin = findViewById<Button>(R.id.btnGoLogin)
+        val button = findViewById<Button>(R.id.btnRegister)
+        errorTv.visibility = View.INVISIBLE
 
-        errorMessage.visibility = View.INVISIBLE
-
-        btnToLogin.setOnClickListener { v: View? ->
-            startActivity(
-                Intent(
-                    this,
-                    LoginActivity::class.java
-                )
+        goLogin.setOnClickListener { v: View? ->
+            val intent = Intent(
+                this,
+                LoginActivity::class.java
             )
+            startActivity(intent)
         }
 
-        btnRegister.setOnClickListener { v: View? ->
-            handleRegistration(
-                inputEmail.text.toString().trim { it <= ' ' },
-                inputPassword.text.toString(),
-                inputConfirmPassword.text.toString(),
-                errorMessage
-            )
-        }
-    }
-
-    private fun handleRegistration(
-        email: String,
-        password: String,
-        confirmPassword: String,
-        errorMessage: TextView
-    ) {
-        if (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-            showError(errorMessage, "Todos los campos deben estar llenos")
-        } else if (password != confirmPassword) {
-            showError(errorMessage, "Las contraseñas no coinciden")
-        } else {
-            errorMessage.visibility = View.INVISIBLE
-            registerUser(email, password)
+        button.setOnClickListener { v: View? ->
+            if (email.text.toString().isEmpty() ||
+                password.text.toString().isEmpty() ||
+                confirmPassword.text.toString().isEmpty()
+            ) {
+                errorTv.text = "Todos los campos deben de ser llenados"
+                errorTv.visibility = View.VISIBLE
+            } else if (password.text.toString() != confirmPassword.text.toString()) {
+                errorTv.text = "Las contraseñas no coinciden"
+                errorTv.visibility = View.VISIBLE
+            } else {
+                errorTv.visibility = View.INVISIBLE
+                signIn(email.text.toString(), password.text.toString())
+            }
         }
     }
 
-    private fun showError(errorMessage: TextView, message: String) {
-        errorMessage.text = message
-        errorMessage.visibility = View.VISIBLE
-    }
-
-    private fun registerUser(email: String, password: String) {
-        Log.d("INFO", "Intentando registrar usuario: $email")
+    private fun signIn(email: String, password: String) {
+        Log.d("INFO", "email: $email, password: $password")
         auth!!.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(
                 this
             ) { task: Task<AuthResult?> ->
                 if (task.isSuccessful) {
-                    Log.d("INFO", "Registro exitoso")
-                    startActivity(
-                        Intent(this, MainActivity::class.java)
-                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    )
-                } else {
-                    Log.w("ERROR", "Error en el registro", task.exception)
-                    Toast.makeText(
+                    Log.d("INFO", "signInWithEmail: success")
+                    val intent = Intent(
                         this,
-                        "El registro falló. Intenta nuevamente.",
+                        MainActivity::class.java
+                    )
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
+                } else {
+                    Log.w("ERROR", "signInWithEmail: failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "El registro falló.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

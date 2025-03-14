@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -19,7 +21,8 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        auth = FirebaseAuth.getInstance()
+        auth = auth
+
         onStart()
 
         val email = findViewById<EditText>(R.id.etEmail)
@@ -49,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
     fun goToMain(user: FirebaseUser) {
         val intent = Intent(this, MainActivity::class.java)
         intent.putExtra("user", user.email)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
     }
 
@@ -61,17 +64,19 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        val currentUser: FirebaseUser? = auth?.currentUser
+        val currentUser = auth!!.currentUser
         if (currentUser != null) {
             goToMain(currentUser)
         }
     }
 
     fun login(email: String?, password: String?) {
-        auth?.signInWithEmailAndPassword(email ?: "", password ?: "")
-            .addOnCompleteListener(this) { task ->
+        auth!!.signInWithEmailAndPassword(email!!, password!!)
+            .addOnCompleteListener(
+                this
+            ) { task: Task<AuthResult?> ->
                 if (task.isSuccessful) {
-                    val user: FirebaseUser? = auth?.currentUser
+                    val user = auth!!.currentUser
                     if (user != null) {
                         showError("", false)
                         goToMain(user)
